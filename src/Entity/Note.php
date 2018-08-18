@@ -26,6 +26,11 @@ class Note
      */
     private $body;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="notes")
+     */
+    private $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Note
     public function setBody(string $body): self
     {
         $this->body = $body;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
