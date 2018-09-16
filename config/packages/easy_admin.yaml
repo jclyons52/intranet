@@ -4,3 +4,4 @@ easy_admin:
     - App\Entity\Note
     - App\Entity\User
     - App\Entity\TimeSheetEntry
+    - App\Entity\TimeSheet

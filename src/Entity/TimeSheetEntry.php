@@ -36,6 +36,11 @@ class TimeSheetEntry
      */
     private $confirmed;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TimeSheet", inversedBy="timeSheetEntries")
+     */
+    private $timeSheet;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,5 +92,22 @@ class TimeSheetEntry
         $this->confirmed = $confirmed;
 
         return $this;
+    }
+
+    public function getTimeSheet(): ?TimeSheet
+    {
+        return $this->timeSheet;
+    }
+
+    public function setTimeSheet(?TimeSheet $timeSheet): self
+    {
+        $this->timeSheet = $timeSheet;
+
+        return $this;
+    }
+
+    public function __toString(): String 
+    {
+        return (string) $this->getId();
     }
 }
